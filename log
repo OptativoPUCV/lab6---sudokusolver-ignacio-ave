@@ -296,3 +296,47 @@ Mon May  1 08:44:08 PM -04 2023:
  tests:  7|1
 total_score: 55/70
 eec6d8a
+Mon May  1 08:46:08 PM -04 2023: 
+ sudoku.c | Unmerged
+ sudoku.c | 284 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 284 insertions(+)
+In file included from test.c:5:
+sudoku.c:237:7: error: redefinition of ‘get_adj_nodes’
+  237 | List* get_adj_nodes(Node * n ) {
+      |       ^~~~~~~~~~~~~
+sudoku.c:102:7: note: previous definition of ‘get_adj_nodes’ with type ‘List *(Node *)’
+  102 | List* get_adj_nodes(Node * n ) {
+      |       ^~~~~~~~~~~~~
+sudoku.c:298:5: error: redefinition of ‘is_valid’
+  298 | int is_valid(Node * n){
+      |     ^~~~~~~~
+sudoku.c:59:5: note: previous definition of ‘is_valid’ with type ‘int(Node *)’
+   59 | int is_valid(Node * n){
+      |     ^~~~~~~~
+sudoku.c: In function ‘is_valid’:
+sudoku.c:299:15: error: unused variable ‘k’ [-Werror=unused-variable]
+  299 |     int i, j, k ;
+      |               ^
+sudoku.c: At top level:
+sudoku.c:338:7: error: redefinition of ‘get_adj_nodes’
+  338 | List* get_adj_nodes(Node * n ) {
+      |       ^~~~~~~~~~~~~
+sudoku.c:102:7: note: previous definition of ‘get_adj_nodes’ with type ‘List *(Node *)’
+  102 | List* get_adj_nodes(Node * n ) {
+      |       ^~~~~~~~~~~~~
+sudoku.c:378:5: error: redefinition of ‘is_final’
+  378 | int is_final(Node * n){
+      |     ^~~~~~~~
+sudoku.c:124:5: note: previous definition of ‘is_final’ with type ‘int(Node *)’
+  124 | int is_final(Node* n){
+      |     ^~~~~~~~
+sudoku.c:453:1: error: version control conflict marker in file
+  453 | <<<<<<< HEAD
+      | ^~~~~~~
+sudoku.c: In function ‘is_final’:
+sudoku.c:380:1: error: control reaches end of non-void function [-Werror=return-type]
+  380 | }
+      | ^
+cc1: all warnings being treated as errors
+Compilation failed
+57f5dc5
