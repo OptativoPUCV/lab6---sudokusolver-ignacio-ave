@@ -147,7 +147,7 @@ void deep_first_search (Node* I){
   Stack* S=createStack();
   push(S,I);
   while (size(S) != 0){
-     Node* n = top(S);
+     Node* n = (Node*)pop(S);
      if(n->visited==true) continue;
     
      //visitar nodo
@@ -165,5 +165,4 @@ void deep_first_search (Node* I){
 
 
 Node* DFS(Node* initial, int* cont){
-  return NULL;
 }
