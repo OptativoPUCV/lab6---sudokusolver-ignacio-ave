@@ -168,29 +168,42 @@ void deep_first_search(Node* I){
 
 
 
+Node* DFS(Node* initial, int* cont) {
+    if (initial == NULL) return NULL;
+    Stack* S = createStack();
+    push(S, initial);
+    *cont = 0;
 
-Node* DFS(Node* initial, int* cont){
-  if(initial == NULL) return NULL;
-  Stack* S = createStack();
-  push(S, initial);
-  while (size(S) != 0){
-     Node* n = top(S);
-     if(n->visited == true) {
-        pop(S); 
-        continue;
-     }
+    while (size(S) != 0) {
+        Node* n = top(S);
+        pop(S);
 
-     //visitar nodo
-     n->visited = true;
-     (*cont)++;
-     if(is_final(n)) return n;
-     List* adj = get_adj_nodes(n);
-     Node* aux = first(adj);
-     while(aux){
-        if(aux->visited == false)
-          push(S, aux);
-        aux = next(adj);
-     }
-  }
-  return NULL;
+        if (n->visited == true) {
+            free(n);
+            continue;
+        }
+
+        n->visited = true;
+        (*cont)++;
+
+        if (is_final(n)) {
+            releaseStack(S, 0); // libera la memoria del stack sin liberar los nodos
+            return n;
+        }
+
+        List* adj = get_adj_nodes(n);
+        Node* aux = first(adj);
+
+        while (aux) {
+            if (aux->visited == false)
+                push(S, aux);
+            aux = next(adj);
+        }
+
+        free(n); // Libera la memoria del nodo que ya no se necesita
+        freeList(adj, 0); // Libera la memoria de la lista de nodos adyacentes sin liberar los nodos
+    }
+
+    return NULL;
 }
+

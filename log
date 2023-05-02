@@ -378,3 +378,19 @@ Mon May  1 08:52:30 PM -04 2023:
  tests:  7|1
 total_score: 55/70
 cf64f53
+Mon May  1 08:54:36 PM -04 2023: 
+ sudoku.c | 20 +++++++++++++++++---
+ 1 file changed, 17 insertions(+), 3 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘DFS’:
+sudoku.c:190:13: error: implicit declaration of function ‘releaseStack’; did you mean ‘createStack’? [-Werror=implicit-function-declaration]
+  190 |             releaseStack(S, 0); // libera la memoria del stack sin liberar los nodos
+      |             ^~~~~~~~~~~~
+      |             createStack
+sudoku.c:204:9: error: implicit declaration of function ‘freeList’; did you mean ‘createList’? [-Werror=implicit-function-declaration]
+  204 |         freeList(adj, 0); // Libera la memoria de la lista de nodos adyacentes sin liberar los nodos
+      |         ^~~~~~~~
+      |         createList
+cc1: all warnings being treated as errors
+Compilation failed
+172e1f0
