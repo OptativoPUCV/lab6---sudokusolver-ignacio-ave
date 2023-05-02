@@ -170,4 +170,27 @@ void deep_first_search(Node* I){
 
 
 Node* DFS(Node* initial, int* cont){
+  if(initial == NULL) return NULL;
+  Stack* S = createStack();
+  push(S, initial);
+  while (size(S) != 0){
+     Node* n = top(S);
+     if(n->visited == true) {
+        pop(S); 
+        continue;
+     }
+
+     //visitar nodo
+     n->visited = true;
+     (*cont)++;
+     if(is_final(n)) return n;
+     List* adj = get_adj_nodes(n);
+     Node* aux = first(adj);
+     while(aux){
+        if(aux->visited == false)
+          push(S, aux);
+        aux = next(adj);
+     }
+  }
+  return NULL;
 }
