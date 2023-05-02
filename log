@@ -1,0 +1,30 @@
+Mon May  1 08:17:48 PM -04 2023: 
+ sudoku.c | 23 +++++------------------
+ 1 file changed, 5 insertions(+), 18 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘is_valid’:
+sudoku.c:176:15: error: unused variable ‘k’ [-Werror=unused-variable]
+  176 |     int i, j, k ;
+      |               ^
+sudoku.c: At top level:
+sudoku.c:215:7: error: redefinition of ‘get_adj_nodes’
+  215 | List* get_adj_nodes(Node * n ) {
+      |       ^~~~~~~~~~~~~
+sudoku.c:114:7: note: previous definition of ‘get_adj_nodes’ with type ‘List *(Node *)’
+  114 | List* get_adj_nodes(Node * n ) {
+      |       ^~~~~~~~~~~~~
+test.c: In function ‘test_dfs’:
+test.c:206:19: error: implicit declaration of function ‘DFS’ [-Werror=implicit-function-declaration]
+  206 |     Node* final = DFS(initial, &cont);
+      |                   ^~~
+test.c:206:19: error: initialization of ‘Node *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+test.c:230:11: error: assignment to ‘Node *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+  230 |     final = DFS(initial, &cont);
+      |           ^
+sudoku.c: In function ‘is_final’:
+sudoku.c:257:1: error: control reaches end of non-void function [-Werror=return-type]
+  257 | }
+      | ^
+cc1: all warnings being treated as errors
+Compilation failed
+00df60b
