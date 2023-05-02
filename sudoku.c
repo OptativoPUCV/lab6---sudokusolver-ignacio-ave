@@ -121,9 +121,6 @@ List* get_adj_nodes(Node * n ) {
 }
 
 
-//4.Implemente la función **int is_final(Node * n)**. 
-//Esta función retorna 1 si el nodo corresponde a un nodo final (es decir, todos los valores de la matriz son distintos a 0) y 0 en caso contrario.
-
 int is_final(Node* n){
     int i,j;
     for(i=0;i<9;i++){
@@ -151,10 +148,10 @@ void deep_first_search (Node* I){
   push(S,I);
   while (size(S) != 0){
      Node* n = pop(S);
-     if(n.visited==true) continue   //(n.visited==true) continue;
+     if(n.visited==true) continue;
     
      //visitar nodo
-     n.visited=true
+     n.visited=true;
      List* adj=get_adj_nodes(n);
      Node* aux= first(adj);
      while(aux){
@@ -164,6 +161,9 @@ void deep_first_search (Node* I){
      }
   }
 }
+
+
+
 Node* DFS(Node* initial, int* cont){
   return NULL;
 }
@@ -179,106 +179,3 @@ int main( int argc, char *argv[] ){
   print_node(final);
   return 0;
 }*/
-
-/*
-Construcción del grafo implícito
-----
-
-Representaremos el *proceso de resolución del problema* usando un *grafo implícito*:
-- Los *nodos del grafo* corresponderán a **estados** del problema, es decir a un tablero parcialmente resuelto.
-- Los *arcos* representarán las **acciones** para movernos de un estado a otro.
-  
-Una **acción** corresponderá a **colocar un número en una casilla vacía del tablero**.
-
-El tipo de dato nodo contiene una matriz que representa el tablero del juego:
-
-    typedef struct{
-       int sudo[9][9];
-    }Node;
-
-Para el ejemplo de la figura la matriz, la variable sudo del nodo se vería así (los ceros indican las casillas vacías):
-
-    5 3 0 0 7 0 0 0 0 
-    6 0 0 1 9 5 0 0 0
-    0 9 8 0 0 0 0 6 0
-    8 0 0 0 6 0 0 0 3 
-    4 0 0 8 0 3 0 0 1
-    7 0 0 0 2 0 0 0 6
-    0 6 0 0 0 0 2 8 0
-    0 0 0 4 1 9 0 0 5
-    0 0 0 0 8 0 0 7 9
-
-
-*/
-
-
-/*
-5.Implemente la función Node* DFS(Node* n, int* cont). Esta función realiza una búsqueda en profundidad a partir del nodo n. El algoritmo es el siguiente:
-
-1. Cree un stack S (pila) e inserte el nodo.
-2. Mientras el stack S no se encuentre vacío:
-
-   a) Saque y elimine el primer nodo de S.
-   
-   b) Verifique si corresponde a un estado final, si es así retorne el nodo.
-   
-   c) Obtenga la lista de nodos adyacentes al nodo.
-   
-   d) Agregue los nodos de la lista (uno por uno) al stack S.
-   
-   e) Libere la memoria usada por el nodo.
-   
-3. Si terminó de recorre el grafo sin encontrar una solución, retorne NULL.
-
-Almacene en la variable cont, la cantidad de iteraciones que realiza el algoritmo.
-
-
-
-void deep_first_search (node* I){
-  Stack* S=createStack();
-  push(S,I);
-  while (size(S) != 0){
-     node* n = pop(S);
-     if n.visited==true continue;
-    
-     //visitar nodo
-     n.visited=true
-     List* adj=get_adj_nodes(n);
-     node* aux= first(adj);
-     while(aux){
-        push(S,aux);
-        aux=next(adj);
-     }
-}
-
-
-
-*/
-
-//Node* DFS(Node* initial, int* cont){
-//  return NULL;
-//}
-
-
-/*
-int main( int argc, char *argv[] ){
-
-  Node* initial= read_file("s12a.txt");;
-
-  int cont=0;
-  Node* final = DFS(initial, &cont);
-  printf("iterations:%d\n",cont);
-  print_node(final);
-
-  return 0;
-}*/
-
-/*
-
-//Grafo implícito
-typedef struct{
-   void* data;
-} Node;
-List* get_adj_nodes(Node*);
-
-*/

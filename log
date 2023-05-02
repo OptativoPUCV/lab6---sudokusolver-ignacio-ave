@@ -268,3 +268,25 @@ sudoku.c:153:12: error: variable ‘n’ set but not used [-Werror=unused-but-se
 cc1: all warnings being treated as errors
 Compilation failed
 9f544a7
+Mon May  1 08:40:57 PM -04 2023: 
+ sudoku.c | 111 +++------------------------------------------------------------
+ 1 file changed, 4 insertions(+), 107 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘deep_first_search’:
+sudoku.c:150:16: error: void value not ignored as it ought to be
+  150 |      Node* n = pop(S);
+      |                ^~~
+sudoku.c:151:10: error: ‘n’ is a pointer; did you mean to use ‘->’?
+  151 |      if(n.visited==true) continue;
+      |          ^
+      |          ->
+sudoku.c:154:7: error: ‘n’ is a pointer; did you mean to use ‘->’?
+  154 |      n.visited=true;
+      |       ^
+      |       ->
+sudoku.c:158:15: error: ‘aux’ is a pointer; did you mean to use ‘->’?
+  158 |         if(aux.visited==false)
+      |               ^
+      |               ->
+Compilation failed
+b58e713
