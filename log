@@ -394,3 +394,19 @@ sudoku.c:204:9: error: implicit declaration of function ‘freeList’; did you 
 cc1: all warnings being treated as errors
 Compilation failed
 172e1f0
+Mon May  1 09:02:39 PM -04 2023: 
+ sudoku.c | 7 ++-----
+ 1 file changed, 2 insertions(+), 5 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘DFS’:
+sudoku.c:186:13: error: implicit declaration of function ‘releaseStack’; did you mean ‘createStack’? [-Werror=implicit-function-declaration]
+  186 |             releaseStack(S, 0); // libera la memoria del stack sin liberar los nodos
+      |             ^~~~~~~~~~~~
+      |             createStack
+sudoku.c:200:9: error: implicit declaration of function ‘freeList’; did you mean ‘createList’? [-Werror=implicit-function-declaration]
+  200 |         freeList(adj, 0); // Libera la memoria de la lista de nodos adyacentes sin liberar los nodos
+      |         ^~~~~~~~
+      |         createList
+cc1: all warnings being treated as errors
+Compilation failed
+b14a2ea
