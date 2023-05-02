@@ -20,12 +20,16 @@ Node* createNode(){
   return n;
 }
 
-
 Node* copy(Node* n){
     Node* new=(Node*) malloc(sizeof(Node));
-    *new = *n;
+    int i,j;
+    for(i=0;i<9;i++)
+       for(j=0;j<9;j++)
+          new->sudo[i][j]=n->sudo[i][j];
+    new->visited=n->visited;
     return new;
 }
+
 
 Node* read_file (char* file_name){
   Node* n = createNode();
