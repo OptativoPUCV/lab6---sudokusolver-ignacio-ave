@@ -167,7 +167,6 @@ void deep_first_search(Node* I){
 
 
 
-
 Node* DFS(Node* initial, int* cont) {
     if (initial == NULL) return NULL;
     Stack* S = createStack();
@@ -192,20 +191,23 @@ Node* DFS(Node* initial, int* cont) {
         }
 
         List* adj = get_adj_nodes(n);
-        Node* aux = first(adj);
 
-        while (aux) {
-            if (aux->visited == false)
-                push(S, aux);
-            aux = next(adj);
+        if (size(adj) > 0) {
+            Node* aux = first(adj);
+
+            while (aux) {
+                if (aux->visited == false)
+                    push(S, aux);
+                aux = next(adj);
+            }
+        } else {
+            free(n); // Libera la memoria del nodo que ya no se necesita
         }
 
-        free(n); // Libera la memoria del nodo que ya no se necesita
         freeList(adj, 0); // Libera la memoria de la lista de nodos adyacentes sin liberar los nodos
     }
 
     return NULL;
 }
-
 
 
