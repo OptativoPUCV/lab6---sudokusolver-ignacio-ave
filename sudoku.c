@@ -195,6 +195,11 @@ Node* DFS(Node* initial, int* cont) {
         List* adj = get_adj_nodes(n);
         Node* aux = first(adj);
 
+        if (!aux) { // No hay nodos adyacentes válidos
+            free(n);
+            continue;
+        }
+
         while (aux) {
             if (aux->visited == false)
                 push(S, aux);
@@ -207,6 +212,7 @@ Node* DFS(Node* initial, int* cont) {
 
     return NULL;
 }
+
 
 /*
 
