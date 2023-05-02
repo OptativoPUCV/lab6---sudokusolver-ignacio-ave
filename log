@@ -237,3 +237,34 @@ sudoku.c:153:12: error: variable ‘n’ set but not used [-Werror=unused-but-se
 cc1: all warnings being treated as errors
 Compilation failed
 5a7dde7
+Mon May  1 08:39:11 PM -04 2023: 
+In file included from test.c:5:
+sudoku.c: In function ‘deep_first_search’:
+sudoku.c:153:16: error: void value not ignored as it ought to be
+  153 |      Node* n = pop(S);
+      |                ^~~
+sudoku.c:154:10: error: ‘n’ is a pointer; did you mean to use ‘->’?
+  154 |      if(n.visited==true) continue   //(n.visited==true) continue;
+      |          ^
+      |          ->
+sudoku.c:154:34: error: expected ‘;’ before ‘n’
+  154 |      if(n.visited==true) continue   //(n.visited==true) continue;
+      |                                  ^
+      |                                  ;
+......
+  157 |      n.visited=true
+      |      ~                            
+sudoku.c:159:23: error: ‘adj’ undeclared (first use in this function)
+  159 |      Node* aux= first(adj);
+      |                       ^~~
+sudoku.c:159:23: note: each undeclared identifier is reported only once for each function it appears in
+sudoku.c:161:15: error: ‘aux’ is a pointer; did you mean to use ‘->’?
+  161 |         if(aux.visited==false)
+      |               ^
+      |               ->
+sudoku.c:153:12: error: variable ‘n’ set but not used [-Werror=unused-but-set-variable]
+  153 |      Node* n = pop(S);
+      |            ^
+cc1: all warnings being treated as errors
+Compilation failed
+9f544a7
