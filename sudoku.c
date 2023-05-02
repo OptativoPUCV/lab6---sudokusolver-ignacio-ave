@@ -188,7 +188,7 @@ Node* DFS(Node* initial, int* cont) {
         (*cont)++;
 
         if (is_final(n)) {
-            releaseStack(S, 0); // libera la memoria del stack sin liberar los nodos
+            clean(S); // libera la memoria del stack sin liberar los nodos
             return n;
         }
 
@@ -202,7 +202,7 @@ Node* DFS(Node* initial, int* cont) {
         }
 
         free(n); // Libera la memoria del nodo que ya no se necesita
-        freeList(adj, 0); // Libera la memoria de la lista de nodos adyacentes sin liberar los nodos
+        clean(adj); // Libera la memoria de la lista de nodos adyacentes sin liberar los nodos
     }
 
     return NULL;
