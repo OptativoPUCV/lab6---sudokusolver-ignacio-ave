@@ -188,17 +188,30 @@ int is_valid(Node * n){
         for( j = 0 ; j < 9 ; j ++ ) {
             int num = n->sudo[i][j] ; 
             if( num != 0 ) {
-                if( filas[i][num] == 1 ) return 0 ; 
-                if( columnas[j][num] == 1 ) return 0 ; 
+                if( filas[i][num] == 1 ) {
+                    return 0 ; 
+                }
+                else {
+                    filas[i][num] = 1 ; 
+                }
+                if( columnas[j][num] == 1 ) {
+                    return 0 ; 
+                }
+                else {
+                    columnas[j][num] = 1 ; 
+                }
                 int k = 3*(i/3) + (j/3) ; 
-                if( submatriz[k][num] == 1 ) return 0 ; 
-                filas[i][num] = 1 ; 
-                columnas[j][num] = 1 ; 
-                submatriz[k][num] = 1 ; 
+                if( submatriz[k][num] == 1 ) {
+                    return 0 ; 
+                }
+                else {
+                    submatriz[k][num] = 1 ; 
+                }
             }
         }
     }
     return 1 ;
+
 }
 
 
