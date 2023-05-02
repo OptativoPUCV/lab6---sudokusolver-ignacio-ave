@@ -147,75 +147,26 @@ int size(List* l){
 
 
 
-
-Node* DFS(Node* initial, int* cont) {
-    if (initial == NULL) return NULL;
-    Stack* S = createStack();
-    push(S, initial);
-    *cont = 0;
-
-    while (size(S) != 0) {
-        Node* n = top(S);
+Node * DFS(Node* initial, int* cont){
+    Stack *S = createStack();
+    push(S,initial);
+    while(!is_empty(S)){
+        Node *n = top(S);
         pop(S);
-
-        if (n->visited == true) {
-            free(n);
-            continue;
-        }
-
-        n->visited = true;
-        (*cont)++;
-
-        if (is_final(n)) {
-            clean(S); // libera la memoria del stack sin liberar los nodos
+        if(is_final(n)){
             return n;
         }
-
-        List* adj = get_adj_nodes(n);
-        Node* aux = first(adj);
-
-        if (!aux) { // No hay nodos adyacentes válidos
-            free(n);
-            continue;
+        List *adj = get_adj_nodes(n);
+        Node *adj_node = first(adj);
+        while(adj_node){
+            push(S,adj_node);
+            adj_node = next(adj);
+            *cont = *cont + 1;
         }
-
-        while (aux) {
-            if (aux->visited == false)
-                push(S, aux);
-            aux = next(adj);
-        }
-
-        free(n); // Libera la memoria del nodo que ya no se necesita
-        clean(adj); // Libera la memoria de la lista de nodos adyacentes sin liberar los nodos
+        free(adj);
     }
-
     return NULL;
 }
-/*
-void deep_first_search(Node* I){
-  if(I == NULL) return;
-  Stack* S = createStack();
-  push(S, I);
-  while (size(S) != 0){
-     Node* n = top(S);
-     if(n->visited == true) {
-        pop(S); 
-        continue;
-     }
-
-     //visitar nodo
-     n->visited = true;
-     List* adj = get_adj_nodes(n);
-     Node* aux = first(adj);
-     while(aux){
-        if(aux->visited == false)
-          push(S, aux);
-        aux = next(adj);
-     }
-  }
-}
-*/
-
 /*
 
 
