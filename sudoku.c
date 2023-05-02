@@ -173,7 +173,7 @@ La salida del código con el estado de la figura es (submatriz del centro):
 //- No se repitan números en las submatrices de 3x3
 
 int is_valid(Node * n){
-    int i, j, k ; 
+    int i, j; 
     int filas[9][10] ; 
     int columnas[9][10] ; 
     int submatriz[9][10] ; 
