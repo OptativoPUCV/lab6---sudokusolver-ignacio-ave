@@ -111,3 +111,26 @@ sudoku.c:270:1: error: control reaches end of non-void function [-Werror=return-
 cc1: all warnings being treated as errors
 Compilation failed
 e95558a
+Mon May  1 08:19:03 PM -04 2023: 
+In file included from test.c:5:
+sudoku.c:228:7: error: redefinition of ‘get_adj_nodes’
+  228 | List* get_adj_nodes(Node * n ) {
+      |       ^~~~~~~~~~~~~
+sudoku.c:114:7: note: previous definition of ‘get_adj_nodes’ with type ‘List *(Node *)’
+  114 | List* get_adj_nodes(Node * n ) {
+      |       ^~~~~~~~~~~~~
+test.c: In function ‘test_dfs’:
+test.c:206:19: error: implicit declaration of function ‘DFS’ [-Werror=implicit-function-declaration]
+  206 |     Node* final = DFS(initial, &cont);
+      |                   ^~~
+test.c:206:19: error: initialization of ‘Node *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+test.c:230:11: error: assignment to ‘Node *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+  230 |     final = DFS(initial, &cont);
+      |           ^
+sudoku.c: In function ‘is_final’:
+sudoku.c:270:1: error: control reaches end of non-void function [-Werror=return-type]
+  270 | }
+      | ^
+cc1: all warnings being treated as errors
+Compilation failed
+d45f1ac
