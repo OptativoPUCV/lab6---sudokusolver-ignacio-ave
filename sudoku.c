@@ -134,6 +134,17 @@ int is_final(Node* n){
     return 1;
 }
 
+int size(List* l){
+  int cont=0;
+  Node* aux= first(l);
+  while(aux){
+    cont++;
+    aux=next(l);
+  }
+  return cont;
+}
+
+
 void deep_first_search (Node* I){
   if(I==NULL) return;
   Stack* S=createStack();
