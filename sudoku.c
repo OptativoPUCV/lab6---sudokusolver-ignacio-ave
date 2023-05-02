@@ -144,28 +144,7 @@ int size(List* l){
 }
 
 
-void deep_first_search(Node* I){
-  if(I == NULL) return;
-  Stack* S = createStack();
-  push(S, I);
-  while (size(S) != 0){
-     Node* n = top(S);
-     if(n->visited == true) {
-        pop(S); 
-        continue;
-     }
 
-     //visitar nodo
-     n->visited = true;
-     List* adj = get_adj_nodes(n);
-     Node* aux = first(adj);
-     while(aux){
-        if(aux->visited == false)
-          push(S, aux);
-        aux = next(adj);
-     }
-  }
-}
 
 
 
@@ -212,7 +191,30 @@ Node* DFS(Node* initial, int* cont) {
 
     return NULL;
 }
+/*
+void deep_first_search(Node* I){
+  if(I == NULL) return;
+  Stack* S = createStack();
+  push(S, I);
+  while (size(S) != 0){
+     Node* n = top(S);
+     if(n->visited == true) {
+        pop(S); 
+        continue;
+     }
 
+     //visitar nodo
+     n->visited = true;
+     List* adj = get_adj_nodes(n);
+     Node* aux = first(adj);
+     while(aux){
+        if(aux->visited == false)
+          push(S, aux);
+        aux = next(adj);
+     }
+  }
+}
+*/
 
 /*
 
