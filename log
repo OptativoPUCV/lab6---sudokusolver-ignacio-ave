@@ -361,3 +361,14 @@ sudoku.c:168:1: error: control reaches end of non-void function [-Werror=return-
 cc1: all warnings being treated as errors
 Compilation failed
 d3a3781
+Mon May  1 08:52:05 PM -04 2023: 
+ sudoku.c | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘DFS’:
+sudoku.c:173:1: error: control reaches end of non-void function [-Werror=return-type]
+  173 | }
+      | ^
+cc1: all warnings being treated as errors
+Compilation failed
+9eb895a
